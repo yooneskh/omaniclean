@@ -1,19 +1,13 @@
 # OmaniClean
 
-An Omarchy Quattro bar plugin that lists usual, non-critical cleanups and how much storage they can free. Nothing runs until you confirm. Privileged work uses `pkexec` so Omarchy's polkit dialog asks for your password, same as the built-in Tailscale panel.
+An Omarchy Quattro bar plugin that lists usual, non-critical cleanups and how much storage they can free. Nothing runs until you confirm. Privileged work uses `pkexec` so Omarchy's polkit dialog asks for your password.
 
-This plugin never wipes `~/.cache`, never deletes Snapper snapshots, never removes orphan packages, never prunes Docker volumes, and never runs `sudo` inside `omarchy-shell`.
+This plugin never wipes `~/.cache`, never deletes Snapper snapshots, never removes orphan packages, never prunes Docker volumes.
 
 ## Install
 
 ```sh
 omarchy plugin add https://github.com/yooneskh/omaniclean.git --enable
-```
-
-Place it with:
-
-```sh
-omarchy bar move yooneskh.omaniclean --section right
 ```
 
 ## Usage
@@ -44,12 +38,12 @@ User-owned rows (trash, thumbnails, AUR builds, language-tool caches) run in the
 - Browser profiles or the whole `~/.cache` tree
 - Docker volumes or unused tagged images (`docker system prune -a`)
 - The last two versions in the pacman cache
-- Running processes or RAM page cache
+- Running processes or RAM page cache (yet)
 
 ## Requirements
 
 - Omarchy Quattro with third-party shell plugins
-- Optional: `paccache` (from `pacman-contrib`), `docker` on `PATH` if you want those rows
+- Optional: `paccache` (from `pacman-contrib`), `docker` on `PATH` if you want those rows (in standard omarchy)
 
 The plugin runs inside `omarchy-shell` as your user. Privileged cleans call system binaries through `pkexec` and wait for the result.
 
