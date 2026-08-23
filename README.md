@@ -2,6 +2,8 @@
 
 An Omarchy Quattro bar plugin that lists usual, non-critical cleanups and how much storage they can free. Nothing runs until you confirm. Privileged work uses `pkexec` so Omarchy's polkit dialog asks for your password.
 
+![OmaniClean](preview.png)
+
 This plugin never wipes `~/.cache`, never deletes Snapper snapshots, never removes orphan packages, never prunes Docker volumes.
 
 ## Install
