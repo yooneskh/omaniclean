@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "yooneskh.omaniclean",
+  "name": "OmaniClean",
+  "version": "1.0.0",
+  "author": "yooneskh",
+  "license": "MIT",
+  "description": "See usual non-critical cleanups and free storage from the Omarchy bar.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "OmaniClean",
+    "description": "Sized, confirm-first cleanup list for reclaimable caches.",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
