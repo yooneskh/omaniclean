@@ -90,8 +90,15 @@ Panel {
   }
 
   function setCenterHoverRevealSuppressed(value) {
-    if (root.bar && "centerHoverRevealSuppressed" in root.bar)
-      root.bar.centerHoverRevealSuppressed = value
+    if (!root.bar) return
+    // Omarchy 4 exposes the property to plugins read-only; assigning it throws a TypeError,
+    // which used to abort close() before the panel was hidden. Use the public setter, and fall
+    // back to the property only on shells that still have it writable.
+    if (typeof root.bar.setCenterHoverRevealSuppressed === "function") {
+      root.bar.setCenterHoverRevealSuppressed(value)
+    } else if ("centerHoverRevealSuppressed" in root.bar) {
+      try { root.bar.centerHoverRevealSuppressed = value } catch (e) {}
+    }
   }
 
   function clampCursor() {
